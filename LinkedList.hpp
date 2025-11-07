@@ -63,6 +63,7 @@ public:
 	void addHead(const T& data) {
 		if (head == nullptr) {
 			head = new Node<T>{data, nullptr, nullptr};
+			tail = head;
 		}
 		else {
 			auto temp = new Node<T>{data, nullptr, head};
