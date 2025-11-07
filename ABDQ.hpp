@@ -142,7 +142,7 @@ public:
         if (getSize() == 0) {
             throw std::runtime_error("empty deque");
         }
-        return data_[back_%capacity_ - 1];
+        return data_[(back_-1)%capacity_];
     }
 
     // Getters
