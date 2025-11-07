@@ -18,16 +18,11 @@
 */
 
 int main() {
-    LLS<int> s;
-    s.push(15);
-    s.push(20);
-    s.push(30);
-
-    LLS<int> d = std::move(s);
-    std::cout << d.peek() << std::endl;
-    std::cout << d.pop() << " " << d.pop() << " " << d.pop() << std::endl;
-    d.push(20);
-    std::cout << d.peek() << std::endl;
+    LLQ<int> s;
+    s.enqueue(10);
+    s.enqueue(20);
+    s.enqueue(30);
+    std::cout << s.peek() << std::endl;
     return 0;
 }
 #endif

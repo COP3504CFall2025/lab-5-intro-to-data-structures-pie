@@ -58,7 +58,7 @@ public:
         if (getSize() == 0) {
             throw std::runtime_error("empty queue");
         }
-        return list.getTail()->data;
+        return list.getHead()->data;
     }
     // Getter
     std::size_t getSize() const noexcept override {

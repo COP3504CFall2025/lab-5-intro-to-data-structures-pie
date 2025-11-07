@@ -15,7 +15,6 @@ class ABQ : public QueueInterface<T> {
     static constexpr size_t scale_factor_ = 2;
 
     void resize(std::size_t newCap) {
-        if (newCap <= capacity_) return;
         T* newArray = new T[newCap];
         for (int i = 0; i < capacity_; i++) {
             newArray[i] = array_[i];
