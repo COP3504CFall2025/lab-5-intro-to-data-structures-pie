@@ -116,10 +116,13 @@ public:
         }
 
         curr_size_--;
+        if (getMaxCapacity() == 1) {
+            return result;
+        }
         if (getMaxCapacity() == 2 && getSize() <= getMaxCapacity()/2) {
             resize(getMaxCapacity()/2);
         }
-        if (getSize() <= getMaxCapacity()/4) {
+        else if (getSize() <= getMaxCapacity()/4) {
             resize(getMaxCapacity()/2);
         }
         return result;
