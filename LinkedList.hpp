@@ -127,6 +127,8 @@ public:
 		auto temp = tail;
 		tail = temp->prev;
 		tail->next = nullptr;
+		delete temp;
+		temp = nullptr;
 		count--;
 		return true;
 
