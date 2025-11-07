@@ -18,11 +18,12 @@
 */
 
 int main() {
-    LLQ<int> s;
-    s.enqueue(10);
-    s.enqueue(20);
-    s.enqueue(30);
-    std::cout << s.peek() << std::endl;
+    ABDQ<int> s;
+    s.pushFront(10);
+    s.pushBack(20);
+    s.pushBack(30);
+    std::cout << s.popFront() << " " << s.popBack() << " " << s.popBack() << std::endl;
     return 0;
 }
+
 #endif

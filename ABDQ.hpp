@@ -18,8 +18,8 @@ private:
 
 public:
     // Big 5
-    ABDQ() : data_(nullptr), capacity_(1), size_(0),front_(0), back_(0) {}
-    explicit ABDQ(std::size_t capacity) : capacity_(capacity), size_(0), front_(0), back_(0) {}
+    ABDQ() : data_(new T[1]), capacity_(1), size_(0),front_(0), back_(0) {}
+    explicit ABDQ(std::size_t capacity) : data_(new T[1]), capacity_(capacity), size_(0), front_(0), back_(0) {}
     ABDQ(const ABDQ& other) {
         data_ = new T[other.capacity_];
         for (int i = 0; i < other.capacity_; i++) {
@@ -80,16 +80,33 @@ public:
 
     // Insertion
     void pushFront(const T& item) override {
-        ensureCapacity();
-        front_ = (front_ - 1)%capacity_;
-        data_[front_] = item;
-        size_++;
+        if (size_ == 0) {
+            front_ = 0;
+            back_ = 1;
+            data_[0] = item;
+            size_++;
+        }
+        else {
+            ensureCapacity();
+            front_ = (front_ - 1)%capacity_;
+            data_[front_] = item;
+            size_++;
+        }
     }
+
     void pushBack(const T& item) override {
-        ensureCapacity();
-        back_ = (back_+1)%capacity_;
-        data_[(back_-1)%capacity_] = item;
-        size_++;
+        if (size_ == 0) {
+            front_ = 0;
+            back_ = 1;
+            data_[0] = item;
+            size_++;
+        }
+        else {
+            ensureCapacity();
+            back_ = (back_+1)%capacity_;
+            data_[(back_-1)%capacity_] = item;
+            size_++;
+        }
     }
 
     // Deletion
@@ -97,7 +114,7 @@ public:
         if (getSize() == 0) {
             throw std::runtime_error("empty deque");
         }
-        T frontData = data_[front];
+        T frontData = data_[front_];
         front_ = (front_+1)%capacity_;
         size_--;
         shrinkIfNeeded();
@@ -133,7 +150,7 @@ public:
         return size_;
     }
 
-    std::size_t getMaxCapacity() const noexcept override {
+    std::size_t getMaxCapacity() const noexcept {
         return capacity_;
     }
 
@@ -147,6 +164,7 @@ public:
         back_ = size_%newCap;
         delete [] data_;
         data_ = newData;
+        capacity_ = newCap;
     }
 
     void ensureCapacity() {
