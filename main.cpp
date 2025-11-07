@@ -19,14 +19,16 @@
 */
 
 int main() {
-    LLQ<int> s;
-    s.enqueue(15);
-    s.enqueue(20);
-    s.enqueue(30);
+    LLS<int> s;
+    s.push(15);
+    s.push(20);
+    s.push(30);
 
-    LLQ<int> d(std::move(s));
+    LLS<int> d = s;
+    std::cout << s.getSize() << std::endl;
+
     for (int i = 0; i < 3; i++) {
-        std::cout << d.dequeue() << std::endl;
+        std::cout << d.pop() << std::endl;
     }
 
     return 0;

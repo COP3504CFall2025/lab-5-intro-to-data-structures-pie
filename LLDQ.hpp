@@ -21,6 +21,26 @@ public:
 
     ~LLDQ() override = default;
 
+    LLDQ(const LLDQ<T>& other) {
+        list = other.list;
+    }
+
+    LLDQ(LLDQ<T>&& other) noexcept {
+        list = std::move(other.list);
+    }
+
+    LLDQ& operator=(const LLDQ& other) {
+        if (this == &other) return *this;
+        list = other.list;
+        return *this;
+    }
+
+    LLDQ& operator=(LLDQ&& other) noexcept {
+        if (this == &other) return *this;
+        list = std::move(other.list);
+        return *this;
+    }
+
     // Core Insertion Operations
     void pushFront(const T& item) override {
         list.addHead(item);

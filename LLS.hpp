@@ -15,6 +15,26 @@ public:
         list = {};
     }
 
+    LLS(const LLS<T>& other) {
+        list = other.list;
+    }
+
+    LLS(LLS<T>&& other) noexcept {
+        list = std::move(other.list);
+    }
+
+    LLS& operator=(const LLS& other) {
+        if (this == &other) return *this;
+        list = other.list;
+        return *this;
+    }
+
+    LLS& operator=(LLS&& other) noexcept {
+        if (this == &other) return *this;
+        list = std::move(other.list);
+        return *this;
+    }
+
     ~LLS() override = default;
 
     // Insertion
