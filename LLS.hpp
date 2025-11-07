@@ -15,9 +15,11 @@ public:
         list = {};
     }
 
+    ~LLS() override = default;
+
     // Insertion
     void push(const T& item) override {
-        list.AddTail(item);
+        list.AddHead(item);
     }
 
     // Deletion

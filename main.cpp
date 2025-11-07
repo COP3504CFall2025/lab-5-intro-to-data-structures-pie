@@ -19,6 +19,16 @@
 */
 
 int main() {
+    ABQ<int> s;
+    s.enqueue(15);
+    s.enqueue(20);
+    s.enqueue(30);
+
+    ABQ<int> d(std::move(s));
+    for (int i = 0; i < 3; i++) {
+        std::cout << d.dequeue() << std::endl;
+    }
+
     return 0;
 }
 

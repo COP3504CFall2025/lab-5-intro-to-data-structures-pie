@@ -19,6 +19,8 @@ public:
         list = {};
     }
 
+    ~LLDQ() override = default;
+
     // Core Insertion Operations
     void pushFront(const T& item) override {
         list.AddHead(item);
@@ -47,16 +49,17 @@ public:
 
     // Element Accessors
     const T& front() const override {
-        return list.getHead();
+        return list.getHead()->data;
     }
     const T& back() const override {
-        return list.getTail();
+        return list.getTail()->data;
     }
 
     // Getter
     std::size_t getSize() const noexcept override {
         return list.getCount();
     }
+
 };
 
 

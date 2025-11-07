@@ -105,7 +105,10 @@ public:
 	// Removal
 	bool RemoveHead() {
 		if (count == 0) return false;
-		if (count == 1) Clear();
+		if (count == 1) {
+			Clear();
+			return true;
+		}
 		auto temp = head;
 		head = temp->next;
 		head->prev = nullptr;
@@ -117,7 +120,10 @@ public:
 	}
 	bool RemoveTail() {
 		if (count == 0) return false;
-		if (count == 1) Clear();
+		if (count == 1) {
+			Clear();
+			return true;
+		}
 		auto temp = tail;
 		tail = temp->prev;
 		tail->next = nullptr;

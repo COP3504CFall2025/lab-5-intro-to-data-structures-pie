@@ -48,6 +48,7 @@ public:
         rhs.capacity_ = 0;
         rhs.array_ = nullptr;
     }
+
     ~ABS() noexcept override {
         delete [] array_;
         array_ = nullptr;
@@ -89,14 +90,15 @@ public:
     }
 
     T pop() override {
-        T temp = array_[curr_size_];
         if (curr_size_ == 0) {
             throw std::runtime_error("empty stack");
         }
 
+        T temp = array_[curr_size_-1];
         curr_size_--;
         return temp;
     }
+
 
 private:
     size_t capacity_;
