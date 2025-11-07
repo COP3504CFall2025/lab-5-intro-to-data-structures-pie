@@ -20,7 +20,7 @@ class ABQ : public QueueInterface<T> {
         for (int i = 0; i < capacity_; i++) {
             newArray[i] = array_[i];
         }
-        delete array_;
+        delete [] array_;
         array_ = newArray;
         capacity_ = newCap;
     }
