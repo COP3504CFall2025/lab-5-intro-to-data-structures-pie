@@ -1,0 +1,3 @@
+C:/Users/vigne/CLionProjects/lab-5-intro-to-data-structures-pie/cmake-build-debug/CMakeFiles/RunMain.dir
+C:/Users/vigne/CLionProjects/lab-5-intro-to-data-structures-pie/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/vigne/CLionProjects/lab-5-intro-to-data-structures-pie/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,4 +1,3 @@
-#ifdef MAIN
 
 #include "ABDQ.hpp"
 #include "ABQ.hpp"
@@ -19,20 +18,13 @@
 */
 
 int main() {
-    LLS<int> s;
-    s.push(15);
-    s.push(20);
-    s.push(30);
-
-    LLS<int> d = s;
-    std::cout << s.getSize() << std::endl;
-
-    for (int i = 0; i < 3; i++) {
-        std::cout << d.pop() << std::endl;
-    }
-
+    LLQ<int> s;
+    s.enqueue(15);
+    s.enqueue(20);
+    s.enqueue(30);
+    std::cout << s.peek() << std::endl;
+    std::cout << s.dequeue() << " " << s.dequeue() << " " << s.dequeue() << std::endl;
+    s.enqueue(20);
+    std::cout << s.peek() << std::endl;
     return 0;
 }
-
-
-#endif

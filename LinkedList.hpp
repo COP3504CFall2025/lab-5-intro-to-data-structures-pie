@@ -61,40 +61,23 @@ public:
 
 	// Insertion
 	void addHead(const T& data) {
-		if (count == 0) {
-			head = new Node<T>;
-			head->data = data;
-			head->prev = nullptr;
-			head->next = nullptr;
-			tail = head;
+		if (head == nullptr) {
+			head = new Node<T>{data, nullptr, nullptr};
 		}
 		else {
-			auto temp = new Node<T>;
-			temp->data = data;
-			temp->next = head;
-			temp->prev = nullptr;
+			auto temp = new Node<T>{data, nullptr, head};
 			head->prev = temp;
 			head = temp;
 		}
 		count++;
-		if (count == 1) {
-			tail = head;
-		}
-
 	}
 	void addTail(const T& data) {
-		if (count == 0) {
-			tail = new Node<T>;
-			tail->data = data;
-			tail->next = nullptr;
-			tail->prev = nullptr;
+		if (head == nullptr) {
+			tail = new Node<T>{data, nullptr, nullptr};
 			head = tail;
 		}
 		else {
-			auto temp = new Node<T>;
-			temp->prev = tail;
-			temp->data = data;
-			temp->next = nullptr;
+			auto temp = new Node<T>{data, tail, nullptr};
 			tail->next = temp;
 			tail = temp;
 		}
