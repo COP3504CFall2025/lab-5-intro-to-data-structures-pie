@@ -62,11 +62,11 @@ public:
 	// Insertion
 	void addHead(const T& data) {
 		if (count == 0) {
-			delete head;
 			head = new Node<T>;
 			head->data = data;
 			head->prev = nullptr;
 			head->next = nullptr;
+			tail = head;
 		}
 		else {
 			auto temp = new Node<T>;
@@ -84,11 +84,11 @@ public:
 	}
 	void addTail(const T& data) {
 		if (count == 0) {
-			delete tail;
 			tail = new Node<T>;
 			tail->data = data;
 			tail->next = nullptr;
 			tail->prev = nullptr;
+			head = tail;
 		}
 		else {
 			auto temp = new Node<T>;
@@ -99,9 +99,6 @@ public:
 			tail = temp;
 		}
 		count++;
-		if (count == 1) {
-			head = tail;
-		}
 	}
 
 	// Removal
@@ -197,11 +194,7 @@ public:
 	}
 
 	// Construction/Destruction
-	LinkedList() {
-		count = 0;
-		head = nullptr;
-		tail = nullptr;
-	}
+	LinkedList() : head(nullptr), tail(nullptr), count(0) {}
 	LinkedList(const LinkedList<T>& list) {
 		head = nullptr;
 		tail = nullptr;

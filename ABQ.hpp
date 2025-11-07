@@ -99,6 +99,7 @@ public:
 
     // Access
     T peek() const override {
+        if (curr_size_ == 0) throw std::runtime_error("empty queue");
         return array_[0];
     }
 
