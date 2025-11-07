@@ -19,7 +19,7 @@ public:
 
     // Insertion
     void enqueue(const T& item) override {
-        list.AddTail(item);
+        list.addTail(item);
     }
 
     // Deletion
@@ -28,7 +28,7 @@ public:
             throw std::runtime_error("nothing to dequeue");
         }
         T headData = list.getHead()->data;
-        list.RemoveHead();
+        list.removeHead();
         return headData;
 
     }

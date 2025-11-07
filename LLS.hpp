@@ -19,7 +19,7 @@ public:
 
     // Insertion
     void push(const T& item) override {
-        list.AddHead(item);
+        list.addHead(item);
     }
 
     // Deletion
@@ -29,7 +29,7 @@ public:
         }
 
         T headData = list.getHead()->data;
-        list.RemoveHead();
+        list.removeHead();
         return headData;
     }
 

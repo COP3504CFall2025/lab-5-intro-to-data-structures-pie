@@ -13,7 +13,7 @@ template<typename T>
 class LinkedList {
 public:
 	// Behaviors
-	void PrintForward() const {
+	void printForward() const {
 		if (count == 0) {
 			return;
 		}
@@ -27,7 +27,7 @@ public:
 		std::cout << std::endl;
 	}
 
-	void PrintReverse() const {
+	void printReverse() const {
 		if (count == 0) {
 			return;
 		}
@@ -60,7 +60,7 @@ public:
 	}
 
 	// Insertion
-	void AddHead(const T& data) {
+	void addHead(const T& data) {
 		if (count == 0) {
 			head = new Node<T>;
 			head->data = data;
@@ -81,7 +81,7 @@ public:
 		}
 
 	}
-	void AddTail(const T& data) {
+	void addTail(const T& data) {
 		if (count == 0) {
 			tail = new Node<T>;
 			tail->data = data;
@@ -103,10 +103,10 @@ public:
 	}
 
 	// Removal
-	bool RemoveHead() {
+	bool removeHead() {
 		if (count == 0) return false;
 		if (count == 1) {
-			Clear();
+			clear();
 			return true;
 		}
 		auto temp = head;
@@ -118,10 +118,10 @@ public:
 		return true;
 
 	}
-	bool RemoveTail() {
+	bool removeTail() {
 		if (count == 0) return false;
 		if (count == 1) {
-			Clear();
+			clear();
 			return true;
 		}
 		auto temp = tail;
@@ -131,7 +131,7 @@ public:
 		return true;
 
 	}
-	void Clear() {
+	void clear() {
 		if (count == 0) {
 			head = nullptr;
 			tail = nullptr;
@@ -168,7 +168,7 @@ public:
 		if (this == &rhs) return *this;
 
 
-		Clear();
+		clear();
 
 		Node<T>* rhsCurr = rhs.head;
 		Node<T>* prev = nullptr;
@@ -234,7 +234,7 @@ public:
 	}
 
 	~LinkedList() {
-		Clear();
+		clear();
 	}
 
 	private:
