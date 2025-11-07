@@ -30,6 +30,7 @@ public:
         }
         capacity_ = rhs.capacity_;
         curr_size_ = rhs.curr_size_;
+        return *this;
     }
     ABS(ABS&& other) noexcept {
         array_ = other.array_;
@@ -86,7 +87,7 @@ public:
         if (curr_size_ == 0) {
             throw std::runtime_error("empty stack");
         }
-        return array_[curr_size_];
+        return array_[curr_size_-1];
     }
 
     T pop() override {

@@ -62,6 +62,7 @@ public:
 	// Insertion
 	void addHead(const T& data) {
 		if (count == 0) {
+			delete head;
 			head = new Node<T>;
 			head->data = data;
 			head->prev = nullptr;
@@ -83,6 +84,7 @@ public:
 	}
 	void addTail(const T& data) {
 		if (count == 0) {
+			delete tail;
 			tail = new Node<T>;
 			tail->data = data;
 			tail->next = nullptr;
