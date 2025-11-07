@@ -55,6 +55,9 @@ public:
 
     // Access
     T peek() const override {
+        if (getSize() == 0) {
+            throw std::runtime_error("empty queue");
+        }
         return list.getTail()->data;
     }
     // Getter

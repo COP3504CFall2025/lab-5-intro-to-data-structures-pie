@@ -115,7 +115,11 @@ public:
         for (int i = 0; i < curr_size_-1; i++) {
             array_[i] = array_[i+1];
         }
+
         curr_size_--;
+        if (getSize() <= getMaxCapacity()/2) {
+            resize(getMaxCapacity()/2);
+        }
         return result;
     }
 
