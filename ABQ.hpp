@@ -47,6 +47,7 @@ public:
         }
         capacity_ = rhs.capacity_;
         curr_size_ = rhs.curr_size_;
+        return *this;
 
     }
     ABQ(ABQ&& other) noexcept {
@@ -59,6 +60,7 @@ public:
     }
     ABQ& operator=(ABQ&& rhs) noexcept {
         if (this == &rhs) return *this;
+        delete [] array_;
         array_ = rhs.array_;
         capacity_ = rhs.capacity_;
         curr_size_ = rhs.curr_size_;

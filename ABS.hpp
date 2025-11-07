@@ -42,12 +42,14 @@ public:
     }
     ABS& operator=(ABS&& rhs) noexcept {
         if (this == &rhs) return *this;
+        delete [] array_;
         array_ = rhs.array_;
         capacity_ = rhs.capacity_;
         curr_size_ = rhs.curr_size_;
         rhs.curr_size_ = 0;
         rhs.capacity_ = 0;
         rhs.array_ = nullptr;
+        return *this;
     }
 
     ~ABS() noexcept override {

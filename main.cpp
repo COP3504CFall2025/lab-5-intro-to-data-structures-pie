@@ -1,4 +1,4 @@
-
+#ifdef MAIN_H
 #include "ABDQ.hpp"
 #include "ABQ.hpp"
 #include "ABS.hpp"
@@ -22,9 +22,12 @@ int main() {
     s.push(15);
     s.push(20);
     s.push(30);
-    std::cout << s.peek() << std::endl;
-    std::cout << s.pop() << " " << s.pop() << " " << s.pop() << std::endl;
-    s.push(20);
-    std::cout << s.peek() << std::endl;
+
+    LLS<int> d = std::move(s);
+    std::cout << d.peek() << std::endl;
+    std::cout << d.pop() << " " << d.pop() << " " << d.pop() << std::endl;
+    d.push(20);
+    std::cout << d.peek() << std::endl;
     return 0;
 }
+#endif
