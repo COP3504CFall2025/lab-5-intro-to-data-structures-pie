@@ -60,7 +60,7 @@ public:
 
     T popBack() override {
         if (getSize() == 0) {
-            throw std::runtime_error("nothing to pop from front");
+            throw std::runtime_error("nothing to pop from back");
         }
         T tailData = list.getTail()->data;
         list.removeTail();
@@ -69,9 +69,15 @@ public:
 
     // Element Accessors
     const T& front() const override {
+        if (getSize() == 0) {
+            throw std::runtime_error("empty queue");
+        }
         return list.getHead()->data;
     }
     const T& back() const override {
+        if (getSize() == 0) {
+            throw std::runtime_error("empty queue");
+        }
         return list.getTail()->data;
     }
 
